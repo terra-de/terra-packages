@@ -1,0 +1,71 @@
+name: Build Pacman Repo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux/archlinux:base-devel
+
+    steps:
+      - name: System setup
+        run: |
+          pacman -Syu --noconfirm
+          # Patch makepkg to allow running as root in container
+          sed -i 's/^EUID_ROOT=1$/EUID_ROOT=0/' /usr/bin/makepkg
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changed versioned packages
+        id: changes
+        run: |
+          RANGE="HEAD~1..HEAD"
+          git rev-parse HEAD~1 >/dev/null 2>&1 \
+            || RANGE="$(git rev-list --max-parents=0 HEAD)..HEAD"
+          CHANGED=$(git diff --name-only $RANGE -- '**/PKGBUILD' \
+            | cut -d/ -f1 | sort -u | grep -v '\-git$' || true)
+          echo "packages=$CHANGED" >> "$GITHUB_OUTPUT"
+
+      - name: Download existing release assets
+        if: steps.changes.outputs.packages != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p repo
+          gh release download stable --dir repo --skip-existing 2>/dev/null || true
+
+      - name: Build packages
+        if: steps.changes.outputs.packages != ''
+        run: |
+          for pkg in ${{ steps.changes.outputs.packages }}; do
+            cd "$pkg"
+            makepkg -f --noconfirm
+            cd "$GITHUB_WORKSPACE"
+          done
+
+      - name: Update repo database
+        if: steps.changes.outputs.packages != ''
+        run: |
+          find . -name '*.pkg.tar.zst' -not -path './repo/*' -exec cp {} repo/ \;
+          cd repo
+          repo-add terra.db.tar.gz *.pkg.tar.zst
+          ls -la
+
+      - name: Upload to GitHub Release
+        if: steps.changes.outputs.packages != ''
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifactErrorsFailBuild: true
+          artifacts: "repo/*"
+          commit: main
+          makeLatest: true
+          name: "stable"
+          tag: "stable"
+          token: ${{ secrets.GITHUB_TOKEN }}
