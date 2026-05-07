@@ -1,0 +1,23 @@
+# Maintainer: DevTrev <devtrev00 at gmail dot com>
+# NOTE: PKGBUILD skeleton — no release tag exists yet on terratheme repo.
+# Update pkgver, source, and sha256sums when v0.1.0 is tagged.
+
+pkgname=terratheme
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Multi-source-color theme generator for Terra DE"
+arch=(any)
+url="https://github.com/terra-de/terratheme"
+license=('MIT')
+depends=('python')
+makedepends=('python-build' 'python-installer' 'python-wheel' 'python-setuptools')
+# source=("https://github.com/terra-de/terratheme/archive/refs/tags/v${pkgver}.tar.gz")
+# sha256sums=('SKIP')
+source=("SKIP")
+sha256sums=('SKIP')
+
+package() {
+  cd "$srcdir/terratheme-${pkgver}"
+  python -m build --wheel --no-isolation
+  python -m installer --destdir="$pkgdir" dist/*.whl
+}
