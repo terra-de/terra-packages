@@ -16,6 +16,8 @@ jobs:
       - name: System setup
         run: |
           pacman -Syu --noconfirm git github-cli
+          # Mark the workspace as safe for git (checked out on host, used inside container)
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           # Patch makepkg to allow running as root in container
           sed -i 's/^EUID_ROOT=1$/EUID_ROOT=0/' /usr/bin/makepkg
 
