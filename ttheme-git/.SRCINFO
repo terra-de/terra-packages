@@ -1,0 +1,16 @@
+pkgbase = ttheme-git
+	pkgdesc = QML lib for Terra DE theming engine (git)
+	pkgver = 0.1.r6.g2a80d3e
+	pkgrel = 1
+	url = https://github.com/terra-de/TTheme
+	arch = any
+	license = MIT
+	makedepends = git
+	depends = qt6-declarative
+	provides = ttheme
+	conflicts = ttheme
+	replaces = ttheme
+	source = git+ssh://git@github.com/terra-de/TTheme.git
+	sha256sums = SKIP
+
+pkgname = ttheme-git
