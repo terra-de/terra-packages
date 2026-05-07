@@ -58,7 +58,7 @@ jobs:
         run: |
           for pkg in ${{ steps.changes.outputs.packages }}; do
             chown -R builder:builder "$pkg"
-            sudo -u builder sh -c "cd '$GITHUB_WORKSPACE/$pkg' && makepkg -f --noconfirm"
+            sudo -u builder sh -c "cd '$GITHUB_WORKSPACE/$pkg' && makepkg -f --noconfirm --nodeps"
           done
 
       - name: Update repo database
