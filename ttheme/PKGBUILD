@@ -10,7 +10,7 @@ license=('MIT')
 depends=('qt6-declarative')
 conflicts=('ttheme-git')
 source=("https://github.com/terra-de/TTheme/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5')
+sha256sums=('d5c28983efdfe79e076bd0b4d7961c02f4fde3021493a945e4e055c49ebba844')
 
 package() {
   cd "$srcdir/TTheme-${pkgver}"
