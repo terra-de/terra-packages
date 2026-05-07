@@ -10,7 +10,7 @@ pkgbase = ttheme-git
 	provides = ttheme
 	conflicts = ttheme
 	replaces = ttheme
-	source = git+ssh://git@github.com/terra-de/TTheme.git
+	source = git+https://github.com/terra-de/TTheme.git
 	sha256sums = SKIP
 
 pkgname = ttheme-git
