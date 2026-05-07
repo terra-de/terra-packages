@@ -6,6 +6,8 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     container:
       image: archlinux/archlinux:base-devel
@@ -13,7 +15,7 @@ jobs:
     steps:
       - name: System setup
         run: |
-          pacman -Syu --noconfirm
+          pacman -Syu --noconfirm git github-cli
           # Patch makepkg to allow running as root in container
           sed -i 's/^EUID_ROOT=1$/EUID_ROOT=0/' /usr/bin/makepkg
 
