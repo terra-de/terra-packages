@@ -1,14 +1,14 @@
 pkgbase = tctl
 	pkgdesc = Terra DE CLI - multi-purpose command-line tool
-	pkgver = 0.1.2
-	pkgrel = 2
+	pkgver = 0.2.0
+	pkgrel = 1
 	url = https://github.com/terra-de/tctl
 	arch = any
 	license = MIT
 	depends = bash
 	depends = brightnessctl
 	conflicts = tctl-git
-	source = https://github.com/terra-de/tctl/archive/refs/tags/v0.1.2.tar.gz
-	sha256sums = 231c7a023b6f209ae435ae2358a0f28628196f30067ede836e262d2944451a20
+	source = https://github.com/terra-de/tctl/archive/refs/tags/v0.2.0.tar.gz
+	sha256sums = 8184535bad38f01e289ab54dbb03856231f1cec5d8652c3caf0cee1e4af96a45
 
 pkgname = tctl
