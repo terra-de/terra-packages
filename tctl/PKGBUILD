@@ -1,7 +1,7 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=tctl
-pkgver=0.1.0
+pkgver=0.1.1
 pkgrel=1
 pkgdesc="Terra DE CLI - multi-purpose command-line tool"
 arch=('any')
@@ -10,7 +10,7 @@ license=('MIT')
 depends=('bash' 'brightnessctl')
 conflicts=('tctl-git')
 source=("https://github.com/terra-de/tctl/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('459db7760382241c88cb1658908d3c3e263332cf3db19bcacfa1cea5bb5c5e4a')
+sha256sums=('b10ccc8396f576bef4ac016cc11b3e9758f10eec4dbd001143ecf4f61dcd3f08')
 
 package() {
   cd "$srcdir/tctl-${pkgver}"
