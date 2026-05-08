@@ -1,0 +1,31 @@
+# Maintainer: DevTrev <devtrev00 at gmail dot com>
+
+pkgname=terratheme-git
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Multi-source-color theme generator for Terra DE (git)"
+arch=(any)
+url="https://github.com/terra-de/terratheme"
+license=('MIT')
+depends=(
+  'python'
+  'python-numpy'
+  'python-pillow'
+  'python-scikit-learn'
+)
+makedepends=('git' 'python-build' 'python-installer' 'python-wheel' 'python-setuptools')
+provides=('terratheme')
+conflicts=('terratheme')
+source=("git+https://github.com/terra-de/terratheme.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/terratheme"
+  git describe --long --tags 2>/dev/null || echo "0.1.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/terratheme"
+  python -m build --wheel --no-isolation
+  python -m installer --destdir="$pkgdir" dist/*.whl
+}

@@ -1,10 +1,11 @@
-pkgbase = terratheme
-	pkgdesc = Multi-source-color theme generator for Terra DE
+pkgbase = terratheme-git
+	pkgdesc = Multi-source-color theme generator for Terra DE (git)
 	pkgver = 0.1.0
 	pkgrel = 1
 	url = https://github.com/terra-de/terratheme
 	arch = any
 	license = MIT
+	makedepends = git
 	makedepends = python-build
 	makedepends = python-installer
 	makedepends = python-wheel
@@ -13,7 +14,9 @@ pkgbase = terratheme
 	depends = python-numpy
 	depends = python-pillow
 	depends = python-scikit-learn
-	source = https://github.com/terra-de/terratheme/archive/refs/tags/v0.1.0.tar.gz
-	sha256sums = c2f76f812902442554d86d4aee5202807c091449e11e719270366c5e95addfd3
+	provides = terratheme
+	conflicts = terratheme
+	source = git+https://github.com/terra-de/terratheme.git
+	sha256sums = SKIP
 
-pkgname = terratheme
+pkgname = terratheme-git

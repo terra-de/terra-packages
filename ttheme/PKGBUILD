@@ -1,7 +1,7 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=ttheme
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="QML lib for Terra DE theming engine"
 arch=(any)
@@ -10,7 +10,7 @@ license=('MIT')
 depends=('qt6-declarative')
 conflicts=('ttheme-git')
 source=("https://github.com/terra-de/TTheme/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('d5c28983efdfe79e076bd0b4d7961c02f4fde3021493a945e4e055c49ebba844')
+sha256sums=('af4a6cff92302d4a3ef8dd305112ff7b8fe3e0061d933913f5e3ff646e57875b')
 
 package() {
   cd "$srcdir/TTheme-${pkgver}"
