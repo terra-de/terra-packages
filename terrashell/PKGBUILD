@@ -1,0 +1,36 @@
+# Maintainer: DevTrev <devtrev00 at gmail dot com>
+
+pkgname=terrashell
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Terra DE Quickshell configuration"
+arch=('any')
+url="https://github.com/terra-de/terrashell"
+license=('MIT')
+depends=('quickshell' 'ttheme' 'tctl')
+optdepends=('terratheme: wallpaper-to-palette integration')
+conflicts=('terrashell-git')
+source=("https://github.com/terra-de/terrashell/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('03e998142f4ebd6e01e8cde4a910249b668547c5af10354eda52de8184874b2b')
+
+package() {
+  cd "$srcdir/terrashell-${pkgver}"
+
+  # Wrapper binary
+  install -Dm755 terrashell "$pkgdir/usr/bin/terrashell"
+
+  # Entry point
+  install -Dm644 shell.qml "$pkgdir/usr/share/terrashell/shell.qml"
+  install -Dm644 filemanager.qml "$pkgdir/usr/share/terrashell/filemanager.qml"
+
+  # QML source tree
+  for dir in app config design features services tests utils; do
+    [ -d "$dir" ] && cp -a "$dir" "$pkgdir/usr/share/terrashell/"
+  done
+
+  # Assets (sounds)
+  cp -a assets "$pkgdir/usr/share/terrashell/"
+
+  # Development scripts
+  cp -a scripts "$pkgdir/usr/share/terrashell/"
+}

@@ -1,0 +1,44 @@
+# Maintainer: DevTrev <devtrev00 at gmail dot com>
+
+pkgname=terrashell-git
+pkgver=0.1.r1.g2a80d3e
+pkgrel=1
+pkgdesc="Terra DE Quickshell configuration (git)"
+arch=('any')
+url="https://github.com/terra-de/terrashell"
+license=('MIT')
+depends=('quickshell' 'ttheme' 'tctl')
+optdepends=('terratheme: wallpaper-to-palette integration')
+makedepends=('git')
+provides=('terrashell')
+conflicts=('terrashell')
+replaces=('terrashell')
+source=("git+https://github.com/terra-de/terrashell.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/terrashell"
+  git describe --long --tags 2>/dev/null || echo "0.1.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/terrashell"
+
+  # Wrapper binary
+  install -Dm755 terrashell "$pkgdir/usr/bin/terrashell"
+
+  # Entry point
+  install -Dm644 shell.qml "$pkgdir/usr/share/terrashell/shell.qml"
+  install -Dm644 filemanager.qml "$pkgdir/usr/share/terrashell/filemanager.qml"
+
+  # QML source tree
+  for dir in app config design features services tests utils; do
+    [ -d "$dir" ] && cp -a "$dir" "$pkgdir/usr/share/terrashell/"
+  done
+
+  # Assets (sounds)
+  cp -a assets "$pkgdir/usr/share/terrashell/"
+
+  # Development scripts
+  cp -a scripts "$pkgdir/usr/share/terrashell/"
+}

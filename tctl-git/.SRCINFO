@@ -1,0 +1,17 @@
+pkgbase = tctl-git
+	pkgdesc = Terra DE CLI - multi-purpose command-line tool (git)
+	pkgver = 0.1.r1.g83b159f
+	pkgrel = 1
+	url = https://github.com/terra-de/tctl
+	arch = any
+	license = MIT
+	makedepends = git
+	depends = bash
+	depends = brightnessctl
+	provides = tctl
+	conflicts = tctl
+	replaces = tctl
+	source = git+https://github.com/terra-de/tctl.git
+	sha256sums = SKIP
+
+pkgname = tctl-git

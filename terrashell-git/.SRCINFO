@@ -1,0 +1,19 @@
+pkgbase = terrashell-git
+	pkgdesc = Terra DE Quickshell configuration (git)
+	pkgver = 0.1.r1.g2a80d3e
+	pkgrel = 1
+	url = https://github.com/terra-de/terrashell
+	arch = any
+	license = MIT
+	makedepends = git
+	depends = quickshell
+	depends = ttheme
+	depends = tctl
+	optdepends = terratheme: wallpaper-to-palette integration
+	provides = terrashell
+	conflicts = terrashell
+	replaces = terrashell
+	source = git+https://github.com/terra-de/terrashell.git
+	sha256sums = SKIP
+
+pkgname = terrashell-git
