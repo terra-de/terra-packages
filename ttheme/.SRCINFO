@@ -8,6 +8,6 @@ pkgbase = ttheme
 	depends = qt6-declarative
 	conflicts = ttheme-git
 	source = https://github.com/terra-de/TTheme/archive/refs/tags/v0.2.0.tar.gz
-	sha256sums = af4a6cff92302d4a3ef8dd305112ff7b8fe3e0061d933913f5e3ff646e57875b
+	sha256sums = add25f408f92faec321a8ccc627a3ab5affa22f4c2bbc4bc720b12a72cc28774
 
 pkgname = ttheme

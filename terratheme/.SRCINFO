@@ -14,6 +14,6 @@ pkgbase = terratheme
 	depends = python-pillow
 	depends = python-scikit-learn
 	source = https://github.com/terra-de/terratheme/archive/refs/tags/v0.1.0.tar.gz
-	sha256sums = c2f76f812902442554d86d4aee5202807c091449e11e719270366c5e95addfd3
+	sha256sums = 56218b08e9d7c0d74ecfa68867c3b784e2d3acf7eb76fca083a1370aee9135e0
 
 pkgname = terratheme
