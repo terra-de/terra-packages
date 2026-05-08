@@ -43,6 +43,8 @@ jobs:
             CHANGED=$(git diff --name-only $RANGE -- '**/PKGBUILD' \
               | cut -d/ -f1 | sort -u | grep -v '\-git$' || true)
           fi
+          # Collapse newlines to spaces for GITHUB_OUTPUT (single-line format)
+          CHANGED=$(echo "$CHANGED" | tr '\n' ' ' | xargs)
           echo "packages=$CHANGED" >> "$GITHUB_OUTPUT"
 
       - name: Download existing release assets
