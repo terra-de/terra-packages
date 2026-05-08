@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: System setup
         run: |
-          pacman -Syu --noconfirm git github-cli sudo
+          pacman -Syu --noconfirm git github-cli sudo python-build python-installer
           # Mark the workspace as safe for git (checked out on host, used inside container)
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           # Create a non-root builder for makepkg
