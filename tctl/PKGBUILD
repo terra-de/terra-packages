@@ -17,4 +17,5 @@ package() {
   install -Dm755 tctl "$pkgdir/usr/bin/tctl"
   install -dm755 "$pkgdir/usr/share/tctl/subcommands"
   install -Dm755 subcommands/brightness "$pkgdir/usr/share/tctl/subcommands/brightness"
+  install -Dm755 subcommands/gesture "$pkgdir/usr/share/tctl/subcommands/gesture"
 }
