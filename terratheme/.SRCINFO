@@ -1,6 +1,6 @@
 pkgbase = terratheme
 	pkgdesc = Multi-source-color theme generator for Terra DE
-	pkgver = 0.1.0
+	pkgver = 0.2.0
 	pkgrel = 1
 	url = https://github.com/terra-de/terratheme
 	arch = any
@@ -13,7 +13,7 @@ pkgbase = terratheme
 	depends = python-numpy
 	depends = python-pillow
 	depends = python-scikit-learn
-	source = https://github.com/terra-de/terratheme/archive/refs/tags/v0.1.0.tar.gz
-	sha256sums = 56218b08e9d7c0d74ecfa68867c3b784e2d3acf7eb76fca083a1370aee9135e0
+	source = https://github.com/terra-de/terratheme/archive/refs/tags/v0.2.0.tar.gz
+	sha256sums = a6809b849fa4aeabc5b8e92f7764914db54ee9f9b5816bd8115080f7822f86d7
 
 pkgname = terratheme

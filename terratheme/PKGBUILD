@@ -1,7 +1,7 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=terratheme
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="Multi-source-color theme generator for Terra DE"
 arch=(any)
@@ -15,7 +15,7 @@ depends=(
 )
 makedepends=('python-build' 'python-installer' 'python-wheel' 'python-setuptools')
 source=("https://github.com/terra-de/terratheme/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('56218b08e9d7c0d74ecfa68867c3b784e2d3acf7eb76fca083a1370aee9135e0')
+sha256sums=('a6809b849fa4aeabc5b8e92f7764914db54ee9f9b5816bd8115080f7822f86d7')
 
 package() {
   cd "$srcdir/terratheme-${pkgver}"
