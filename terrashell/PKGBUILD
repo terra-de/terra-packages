@@ -1,7 +1,7 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=terrashell
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="Terra DE Quickshell configuration"
 arch=('any')
@@ -11,7 +11,7 @@ depends=('quickshell' 'ttheme' 'tctl')
 optdepends=('terratheme: wallpaper-to-palette integration')
 conflicts=('terrashell-git')
 source=("https://github.com/terra-de/terrashell/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('03e998142f4ebd6e01e8cde4a910249b668547c5af10354eda52de8184874b2b')
+sha256sums=('c29ac9863a5dbd45560647faebaa38340423112558d52aa8b43534a91bbb2764')
 
 package() {
   cd "$srcdir/terrashell-${pkgver}"
