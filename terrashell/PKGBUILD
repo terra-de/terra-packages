@@ -2,7 +2,7 @@
 
 pkgname=terrashell
 pkgver=0.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Terra DE Quickshell configuration"
 arch=('any')
 url="https://github.com/terra-de/terrashell"
@@ -27,6 +27,9 @@ package() {
   for dir in app config design features services tests utils; do
     [ -d "$dir" ] && cp -a "$dir" "$pkgdir/usr/share/terrashell/"
   done
+
+  # Default binds config
+  install -Dm644 keys-defaults.json "$pkgdir/usr/share/terrashell/keys-defaults.json"
 
   # Assets (sounds)
   cp -a assets "$pkgdir/usr/share/terrashell/"

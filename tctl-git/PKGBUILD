@@ -2,7 +2,7 @@
 
 pkgname=tctl-git
 pkgver=0.1.r1.g83b159f
-pkgrel=1
+pkgrel=2
 pkgdesc="Terra DE CLI - multi-purpose command-line tool (git)"
 arch=('any')
 url="https://github.com/terra-de/tctl"
@@ -25,4 +25,7 @@ package() {
   install -Dm755 tctl "$pkgdir/usr/bin/tctl"
   install -dm755 "$pkgdir/usr/share/tctl/subcommands"
   install -Dm755 subcommands/brightness "$pkgdir/usr/share/tctl/subcommands/brightness"
+  install -Dm755 subcommands/gesture "$pkgdir/usr/share/tctl/subcommands/gesture"
+  install -Dm755 subcommands/keys "$pkgdir/usr/share/tctl/subcommands/keys"
+  install -Dm755 subcommands/dump "$pkgdir/usr/share/tctl/subcommands/dump"
 }

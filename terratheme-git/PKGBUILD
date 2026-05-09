@@ -2,7 +2,7 @@
 
 pkgname=terratheme-git
 pkgver=0.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Multi-source-color theme generator for Terra DE (git)"
 arch=(any)
 url="https://github.com/terra-de/terratheme"
@@ -21,7 +21,7 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/terratheme"
-  git describe --long --tags 2>/dev/null || echo "0.1.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+  git describe --long --tags 2>/dev/null || echo "0.2.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
 }
 
 package() {
