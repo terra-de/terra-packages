@@ -2,7 +2,7 @@
 
 pkgname=ttheme-git
 pkgver=0.1.r6.g2a80d3e
-pkgrel=1
+pkgrel=2
 pkgdesc="QML lib for Terra DE theming engine (git)"
 arch=(any)
 url="https://github.com/terra-de/TTheme"

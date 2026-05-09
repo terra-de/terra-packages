@@ -2,7 +2,7 @@
 
 pkgname=terrashell-git
 pkgver=0.1.r1.g2a80d3e
-pkgrel=2
+pkgrel=3
 pkgdesc="Terra DE Quickshell configuration (git)"
 arch=('any')
 url="https://github.com/terra-de/terrashell"

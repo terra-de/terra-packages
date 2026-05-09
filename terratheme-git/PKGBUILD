@@ -2,7 +2,7 @@
 
 pkgname=terratheme-git
 pkgver=0.1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Multi-source-color theme generator for Terra DE (git)"
 arch=(any)
 url="https://github.com/terra-de/terratheme"
