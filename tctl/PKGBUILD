@@ -10,7 +10,7 @@ license=('MIT')
 depends=('bash' 'brightnessctl')
 conflicts=('tctl-git')
 source=("https://github.com/terra-de/tctl/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('83c1c4ef60c81898dbfa2da6044a5047a6e199bd4445550bebecc086eae7a18e')
+sha256sums=('dabd077e91b0fc3851ce47a643103e15e2ce35222ce1bfce40d172c3863f0496')
 
 package() {
   cd "$srcdir/tctl-${pkgver}"

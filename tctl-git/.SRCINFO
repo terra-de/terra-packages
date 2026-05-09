@@ -1,7 +1,7 @@
 pkgbase = tctl-git
 	pkgdesc = Terra DE CLI - multi-purpose command-line tool (git)
 	pkgver = 0.1.r1.g83b159f
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/terra-de/tctl
 	arch = any
 	license = MIT
