@@ -1,0 +1,33 @@
+# Maintainer: DevTrev <devtrev00 at gmail dot com>
+
+pkgname=terratheme-browser-git
+pkgver=0.1.0.r0.g5862137
+pkgrel=2
+pkgdesc="Terra DE browser extension native messaging host — bridges palette.json to the browser extension (git)"
+arch=('any')
+url="https://github.com/terra-de/terratheme-browser"
+license=('MIT')
+depends=('python')
+makedepends=('git')
+provides=('terratheme-browser')
+conflicts=('terratheme-browser')
+replaces=('terratheme-browser')
+source=("git+https://github.com/terra-de/terratheme-browser.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/terratheme-browser"
+  git describe --long --tags 2>/dev/null || echo "0.1.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/terratheme-browser"
+
+  # Native messaging host script
+  install -Dm755 "host/terratheme-browser.py" \
+    "$pkgdir/usr/share/terratheme-browser/terratheme-browser.py"
+
+  # Native messaging manifest (system-wide Firefox)
+  install -Dm644 "host/terratheme_browser.json" \
+    "$pkgdir/usr/lib/mozilla/native-messaging-hosts/terratheme_browser.json"
+}
