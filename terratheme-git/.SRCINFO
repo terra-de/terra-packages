@@ -1,7 +1,7 @@
 pkgbase = terratheme-git
 	pkgdesc = Multi-source-color theme generator for Terra DE (git)
-	pkgver = 0.1.0
-	pkgrel = 2
+	pkgver = 0.4.0.r29.g8034ab1
+	pkgrel = 1
 	url = https://github.com/terra-de/terratheme
 	arch = any
 	license = MIT

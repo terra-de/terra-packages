@@ -1,7 +1,7 @@
 pkgbase = terrashell-git
 	pkgdesc = Terra DE Quickshell configuration (git)
-	pkgver = 0.1.r1.g2a80d3e
-	pkgrel = 2
+	pkgver = 0.3.1.r5.g2fa8def
+	pkgrel = 1
 	url = https://github.com/terra-de/terrashell
 	arch = any
 	license = MIT

@@ -1,13 +1,13 @@
 pkgbase = ttheme
 	pkgdesc = QML lib for Terra DE theming engine
-	pkgver = 0.2.0
+	pkgver = 0.3.0
 	pkgrel = 1
 	url = https://github.com/terra-de/TTheme
 	arch = any
 	license = MIT
 	depends = qt6-declarative
 	conflicts = ttheme-git
-	source = https://github.com/terra-de/TTheme/archive/refs/tags/v0.2.0.tar.gz
-	sha256sums = add25f408f92faec321a8ccc627a3ab5affa22f4c2bbc4bc720b12a72cc28774
+	source = https://github.com/terra-de/TTheme/archive/refs/tags/v0.3.0.tar.gz
+	sha256sums = 13aa6457a00a1ab76fefade17ccad73c1bcd0e025e339324e9d69af6a817474a
 
 pkgname = ttheme

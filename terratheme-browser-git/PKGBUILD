@@ -1,7 +1,7 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=terratheme-browser-git
-pkgver=0.1.0.r1.g5862137
+pkgver=0.1.0.r13.g5862137
 pkgrel=1
 pkgdesc="Terra DE browser extension native messaging host — bridges palette.json to the browser extension (git)"
 arch=('any')

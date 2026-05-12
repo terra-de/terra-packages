@@ -1,0 +1,16 @@
+pkgbase = terratheme-browser-git
+	pkgdesc = Terra DE browser extension native messaging host — bridges palette.json to the browser extension (git)
+	pkgver = 0.1.0.r13.g5862137
+	pkgrel = 1
+	url = https://github.com/terra-de/terratheme-browser
+	arch = any
+	license = MIT
+	makedepends = git
+	depends = python
+	provides = terratheme-browser
+	conflicts = terratheme-browser
+	replaces = terratheme-browser
+	source = git+https://github.com/terra-de/terratheme-browser.git
+	sha256sums = SKIP
+
+pkgname = terratheme-browser-git

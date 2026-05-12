@@ -1,6 +1,6 @@
 pkgbase = ttheme-git
 	pkgdesc = QML lib for Terra DE theming engine (git)
-	pkgver = 0.1.r6.g2a80d3e
+	pkgver = 0.3.0.r9.g83aac0c
 	pkgrel = 1
 	url = https://github.com/terra-de/TTheme
 	arch = any
