@@ -1,8 +1,8 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=terrashell-git
-pkgver=0.1.r1.g2a80d3e
-pkgrel=3
+pkgver=0.3.1.r5.g2fa8def
+pkgrel=1
 pkgdesc="Terra DE Quickshell configuration (git)"
 arch=('any')
 url="https://github.com/terra-de/terrashell"
@@ -18,7 +18,9 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/terrashell"
-  git describe --long --tags 2>/dev/null || echo "0.1.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+  local tag
+  tag="$(git describe --tags --abbrev=0 2>/dev/null)" && tag="${tag#v}" || tag="0.0.0"
+  printf "%s.r%s.g%s" "$tag" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {

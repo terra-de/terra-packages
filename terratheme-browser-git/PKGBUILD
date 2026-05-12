@@ -1,8 +1,8 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=terratheme-browser-git
-pkgver=0.1.0.r0.g5862137
-pkgrel=2
+pkgver=0.1.0.r1.g5862137
+pkgrel=1
 pkgdesc="Terra DE browser extension native messaging host — bridges palette.json to the browser extension (git)"
 arch=('any')
 url="https://github.com/terra-de/terratheme-browser"
@@ -17,7 +17,9 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/terratheme-browser"
-  git describe --long --tags 2>/dev/null || echo "0.1.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+  local tag
+  tag="$(git describe --tags --abbrev=0 2>/dev/null)" && tag="${tag#v}" || tag="0.0.0"
+  printf "%s.r%s.g%s" "$tag" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {

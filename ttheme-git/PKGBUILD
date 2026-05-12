@@ -1,8 +1,8 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=ttheme-git
-pkgver=0.1.r6.g2a80d3e
-pkgrel=2
+pkgver=0.3.0.r9.g83aac0c
+pkgrel=1
 pkgdesc="QML lib for Terra DE theming engine (git)"
 arch=(any)
 url="https://github.com/terra-de/TTheme"
@@ -17,7 +17,9 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/TTheme"
-  git describe --long --tags 2>/dev/null || echo "0.1.r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+  local tag
+  tag="$(git describe --tags --abbrev=0 2>/dev/null)" && tag="${tag#v}" || tag="0.0.0"
+  printf "%s.r%s.g%s" "$tag" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
