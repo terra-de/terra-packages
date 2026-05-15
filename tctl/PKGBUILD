@@ -1,8 +1,8 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=tctl
-pkgver=0.3.1
-pkgrel=2
+pkgver=0.4.0
+pkgrel=1
 pkgdesc="Terra DE CLI - multi-purpose command-line tool"
 arch=('any')
 url="https://github.com/terra-de/tctl"
@@ -10,14 +10,14 @@ license=('MIT')
 depends=('bash' 'brightnessctl')
 conflicts=('tctl-git')
 source=("https://github.com/terra-de/tctl/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('dabd077e91b0fc3851ce47a643103e15e2ce35222ce1bfce40d172c3863f0496')
+sha256sums=('be747ccfd072d215eb25353e545b4f65b4d8cec68100e147ef41d1aa401dd433')
 
 package() {
   cd "$srcdir/tctl-${pkgver}"
   install -Dm755 tctl "$pkgdir/usr/bin/tctl"
   install -dm755 "$pkgdir/usr/share/tctl/subcommands"
-  install -Dm755 subcommands/brightness "$pkgdir/usr/share/tctl/subcommands/brightness"
-  install -Dm755 subcommands/gesture "$pkgdir/usr/share/tctl/subcommands/gesture"
-  install -Dm755 subcommands/keys "$pkgdir/usr/share/tctl/subcommands/keys"
-  install -Dm755 subcommands/dump "$pkgdir/usr/share/tctl/subcommands/dump"
+  install -Dm644 subcommands/.helpers.sh "$pkgdir/usr/share/tctl/subcommands/.helpers.sh"
+  for cmd in subcommands/*; do
+    [ -f "$cmd" ] && install -Dm755 "$cmd" "$pkgdir/usr/share/tctl/subcommands/"
+  done
 }

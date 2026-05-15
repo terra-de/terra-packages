@@ -1,0 +1,27 @@
+pkgbase = terra-hyprland-git
+	pkgdesc = Terra DE Hyprland Lua configuration (system package, git)
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://github.com/terra-de/terra-hyprland
+	arch = any
+	license = MIT
+	makedepends = git
+	depends = hyprland>=0.55.0
+	depends = terrashell
+	depends = tctl
+	optdepends = terratheme: wallpaper-to-palette integration
+	optdepends = awww: wallpaper daemon
+	optdepends = hyprsunset: night light
+	optdepends = wl-clipboard: clipboard history
+	optdepends = playerctl: media key bindings
+	optdepends = brightnessctl: brightness key bindings
+	optdepends = pulseaudio-utils: volume key bindings (wpctl)
+	optdepends = slurp: screenshot region selection
+	optdepends = grim: screenshot tool
+	provides = terra-hyprland
+	conflicts = terra-hyprland
+	replaces = terra-hyprland
+	source = git+https://github.com/terra-de/terra-hyprland.git
+	sha256sums = SKIP
+
+pkgname = terra-hyprland-git

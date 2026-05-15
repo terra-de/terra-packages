@@ -1,0 +1,51 @@
+# Maintainer: Trevor Arjeski <trevor@arjeski.dev>
+
+pkgname=terra-hyprland-git
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Terra DE Hyprland Lua configuration (system package, git)"
+arch=('any')
+url="https://github.com/terra-de/terra-hyprland"
+license=('MIT')
+depends=(
+    'hyprland>=0.55.0'
+    'terrashell'
+    'tctl'
+)
+makedepends=('git')
+optdepends=(
+    'terratheme: wallpaper-to-palette integration'
+    'awww: wallpaper daemon'
+    'hyprsunset: night light'
+    'wl-clipboard: clipboard history'
+    'playerctl: media key bindings'
+    'brightnessctl: brightness key bindings'
+    'pulseaudio-utils: volume key bindings (wpctl)'
+    'slurp: screenshot region selection'
+    'grim: screenshot tool'
+)
+provides=('terra-hyprland')
+conflicts=('terra-hyprland')
+replaces=('terra-hyprland')
+source=("git+https://github.com/terra-de/terra-hyprland.git")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "$srcdir/terra-hyprland"
+    local tag
+    tag="$(git describe --tags --abbrev=0 2>/dev/null)" && tag="${tag#v}" || tag="0.0.0"
+    printf "%s.r%s.g%s" "$tag" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+    cd "$srcdir/terra-hyprland"
+    install -Dm755 terra-hyprland "$pkgdir/usr/bin/terra-hyprland"
+    install -Dm644 terra-hyprland.desktop "$pkgdir/usr/share/wayland-sessions/terra-hyprland.desktop"
+
+    for f in hyprland.lua colors.lua config.lua binds.lua rules.lua workspaces.lua \
+             mods.lua programs.lua utils.lua; do
+        install -Dm644 "$f" "$pkgdir/usr/share/terra/hyprland/$f"
+    done
+
+    install -Dm644 .luarc.json "$pkgdir/usr/share/terra/hyprland/.luarc.json"
+}

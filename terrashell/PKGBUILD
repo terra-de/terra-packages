@@ -1,7 +1,7 @@
 # Maintainer: DevTrev <devtrev00 at gmail dot com>
 
 pkgname=terrashell
-pkgver=0.3.1
+pkgver=0.4.0
 pkgrel=1
 pkgdesc="Terra DE Quickshell configuration"
 arch=('any')
@@ -11,7 +11,7 @@ depends=('quickshell' 'ttheme' 'tctl')
 optdepends=('terratheme: wallpaper-to-palette integration')
 conflicts=('terrashell-git')
 source=("https://github.com/terra-de/terrashell/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=('466bf06a60e9285104bed3d011712d42bee1c73d96d2880e25ae312087bc0722')
+sha256sums=('1eaa841dae506046b1e247102631010a37bd55e297163ca28a011c1d15108931')
 
 package() {
   cd "$srcdir/terrashell-${pkgver}"
@@ -27,9 +27,6 @@ package() {
   for dir in app config design features services tests utils; do
     [ -d "$dir" ] && cp -a "$dir" "$pkgdir/usr/share/terrashell/"
   done
-
-  # Default binds config
-  install -Dm644 keys-defaults.json "$pkgdir/usr/share/terrashell/keys-defaults.json"
 
   # Assets (sounds)
   cp -a assets "$pkgdir/usr/share/terrashell/"
