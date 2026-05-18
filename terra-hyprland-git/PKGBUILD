@@ -43,9 +43,16 @@ package() {
     install -Dm644 terra-hyprland.desktop "$pkgdir/usr/share/wayland-sessions/terra-hyprland.desktop"
 
     for f in hyprland.lua colors.lua config.lua binds.lua rules.lua workspaces.lua \
-             mods.lua programs.lua utils.lua; do
+             mods.lua programs.lua utils.lua settings.lua log.lua; do
         install -Dm644 "$f" "$pkgdir/usr/share/terra/hyprland/$f"
     done
+
+    # Install example config files
+    install -Dm644 preferences.json "$pkgdir/usr/share/terra/hyprland/preferences.json"
+    install -Dm644 machine.json "$pkgdir/usr/share/terra/hyprland/machine.json"
+
+    # Install schema (single source of truth for defaults and GUI metadata)
+    install -Dm644 settings-schema.json "$pkgdir/usr/share/terra/hyprland/settings-schema.json"
 
     install -Dm644 .luarc.json "$pkgdir/usr/share/terra/hyprland/.luarc.json"
 }
